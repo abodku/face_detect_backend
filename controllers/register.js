@@ -1,5 +1,8 @@
 const handelRegister=(req,res,db,bcrypt)=>{
     const {name, password, email}=req.body;
+    if (!name || !password || !email){
+        return res.status(400).json('please input your data');
+    }
     const hash=bcrypt.hashSync(password);
 
     db.transaction(trx=>{
