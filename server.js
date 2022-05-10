@@ -28,7 +28,7 @@ app.use(cors());
 
 app.get('/',(req,res)=>{
     db.select('name','email','entries').from('users')
-        .then(response=>res.json(response))
+        .then(response=>res.json('good'))
 })
 
 app.post('/signin',(req,res)=>{
