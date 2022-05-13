@@ -47,7 +47,10 @@ app.put('/image',(req,res)=>{
     image.imageHandler(req,res,db)
 });
 
-app.post('/imageURL',image.imageURLHandler());
+app.post('/imageURLFDM',image.imageURLHandlerFDM());
+app.post('/imageURLCM',image.imageURLHandlerCM());
+app.post('/imageURLGm',image.imageURLHandlerGM());
+
 
 app.listen(process.env.PORT||3001,()=>{
     console.log('good')
