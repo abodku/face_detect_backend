@@ -50,6 +50,8 @@ app.put('/image',(req,res)=>{
 app.post('/imageURLFDM',image.imageURLHandlerFDM());
 app.post('/imageURLCM',image.imageURLHandlerCM());
 app.post('/imageURLGm',image.imageURLHandlerGM());
+app.post('/imageURLFM',image.imageURLHandlerFM());
+app.post('/imageURLNSFW',image.imageURLHandlerNSFW());
 
 
 app.listen(process.env.PORT||3001,()=>{
