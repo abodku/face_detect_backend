@@ -27,8 +27,7 @@ const imageURLHandlerGM=()=>(req,res)=>{
             .GENERAL_MODEL,
                 req.body.input)
                 .then(data=>res.json(data))
-                .then(data=>console.log(data))
-                .catch(err=>console.log(err))
+                .catch(e=> res.status(400).json(e))
 }
 
 const imageURLHandlerFM=()=>(req,res)=>{
@@ -37,8 +36,7 @@ const imageURLHandlerFM=()=>(req,res)=>{
             .FOOD_MODEL,
                 req.body.input)
                 .then(data=>res.json(data))
-                .then(data=>console.log(data))
-                .catch(err=>console.log(err))
+                .catch(e=> res.status(400).json(e))
 }
 
 const imageURLHandlerNSFW=()=>(req,res)=>{
@@ -47,20 +45,9 @@ const imageURLHandlerNSFW=()=>(req,res)=>{
             .NSFW_MODEL,
                 req.body.input)
                 .then(data=>res.json(data))
-                .then(data=>console.log(data))
-                .catch(err=>console.log(err))
+                .catch(e=> res.status(400).json(e))
 }
 
-const imageTest=()=>(req,res)=>{
-    app.models
-        .predict(Clarifai
-            .NSFW_MODEL,
-                req.body.input)
-                .then(data=>res.json(data))
-                .then(data=>console.log(data))
-                .catch(err=>console.log(err))
-                // console.log(Clarifai)
-}
 const imageHandler=(req,res,db)=>{
     const {id}=req.body;
 
@@ -77,7 +64,6 @@ module.exports={
     imageURLHandlerFDM:imageURLHandlerFDM,
     imageHandler:imageHandler,
     imageURLHandlerCM:imageURLHandlerCM,
-    imageTest:imageTest,
     imageURLHandlerGM:imageURLHandlerGM,
     imageURLHandlerFM:imageURLHandlerFM,
     imageURLHandlerNSFW:imageURLHandlerNSFW
